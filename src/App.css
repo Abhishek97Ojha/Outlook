@@ -1,38 +1,51 @@
-.App {
-  text-align: center;
+.outlook-logo{
+  width: 2.5rem;
+  height: 2.5rem;
+  /* border: 2px solid red; */
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.main-box{
+  /* border: 2px solid red; */
+  height: 100svh;
+  
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container{
+  border: 2px solid;
+  width:103%;
+  margin-left: -22px;
+  /* margin-right: -25px; */
+  margin-top: -22px;
+  height: 96%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+}
+.nav{
+  /* border: 2px solid red; */
+  width: 100%;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
-
-.App-link {
-  color: #61dafb;
+.mail-folder>li{
+  /* border:2px solid ; */
+  display: flex;
+  align-items: center;
+  padding-left:3rem;
+  height:3rem;
+  font-size: large;
+  border-radius:5px;
+  margin-bottom: .5rem;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.mail-folder>li:hover{
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.226);
+}
+.mail-folder>li:active{
+  transform: translateY(.1px);
+}
+.mail-list{
+  border: 2px solid red;
+  width: 30%;
+}
+.mail-data{
+  border: 2px solid red;
+  width: 70%;
 }
