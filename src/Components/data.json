@@ -1,58 +1,66 @@
 [
-	{
-		"mId": "guid-1",
-		"unread": true,
-		"subject" : "Training Program", 
-		"category":"inbox",
-		"content" : "About Microsoft Virtual Academy. \n Microsoft Virtual Academy provides free online training by world-class experts to help you build your technical skills and advance your career. Make it your destination of choice to get started on the latest Microsoft technologies and join this vibrant community."
-	},
-	{
-		"mId": "guid-2",
-		"unread": false,
-		"subject" : "Empower your future",
-        "category":"inbox",
-		"content" : "We foster our pipeline of future leaders with 47 employee networks and 7 global employee resource groups, servicing an active community of thousands across Microsoft"
-	},
+  {
+    "mId": "guid-1",
+    "unread": true,
+    "subject": "Training Program",
+    "category": "inbox",
+    "flag": false,
+    "content": "About Microsoft Virtual Academy. \n Microsoft Virtual Academy provides free online training by world-class experts to help you build your technical skills and advance your career. Make it your destination of choice to get started on the latest Microsoft technologies and join this vibrant community."
+  },
+  {
+    "mId": "guid-2",
+    "unread": false,
+    "subject": "Empower your future",
+    "flag": false,
+    "category": "inbox",
+    "content": "We foster our pipeline of future leaders with 47 employee networks and 7 global employee resource groups, servicing an active community of thousands across Microsoft"
+  },
   {
     "mId": "guid-3",
     "unread": true,
     "subject": "Pre Approved Loan",
-    "category":"spam",
+    "flag": false,
+    "category": "spam",
     "content": "Congratulations ! <u>Credit card<u> is being shipped to you today!"
   },
   {
     "mId": "guid-4",
     "unread": true,
     "subject": "You won a lottery!",
-    "category":"spam",
+    "flag": false,
+    "category": "spam",
     "content": "You have just won the New York official lottery. Please send us your address so that we may start the transfer."
   },
-	{
-		"mId": "guid-5",
-		"unread": true,
-		"subject" : "RANDOM QUOTE 1",
-    "category":"inbox",
-		"content" : "Life would be a great deal easier if dead things had the decency to remain dead. <br><br> - <i>Doug MacLeod</i>"
-	},
-	{
-		"mId": "guid-6",
-		"unread": false,
-		"subject" : "RANDOM QUOTE 2",
-    "category":"inbox",
-		"content" : "I'm unpredictable, I never know where I'm going until I get there, I'm so random, I'm always growing, learning, changing, I'm never the same person twice. But one thing you can be sure of about me; is I will always do exactly what I want to do. <br><br> - <i>C. JoyBell C</i>"
-	},
-	{
-		"mId": "guid-7",
-		"unread": false,
-		"subject" : "RANDOM QUOTE 3",
-    "category":"spam",
-		"content" : "Insane means fewer cameras! <br><br> - <i>Ally Carter, Only the Good Spy Young</i>"
-	},
-	{
-		"mId": "guid-8",
-		"unread": false,
-		"subject" : "RANDOM QUOTE 4",
-    "category":"spam",
-		"content" : "A musician must make music, an artist must paint, a poet must write, if he is to be ultimately at peace with himself. What a man can be, he must be. <br><br> - <i>Abraham Maslow</i> "
-	}
+  {
+    "mId": "guid-5",
+    "unread": true,
+    "subject": "RANDOM QUOTE 1",
+    "flag": false,
+    "category": "inbox",
+    "content": "Life would be a great deal easier if dead things had the decency to remain dead. <br><br> - <i>Doug MacLeod</i>"
+  },
+  {
+    "mId": "guid-6",
+    "unread": false,
+    "subject": "RANDOM QUOTE 2",
+    "flag": false,
+    "category": "inbox",
+    "content": "I'm unpredictable, I never know where I'm going until I get there, I'm so random, I'm always growing, learning, changing, I'm never the same person twice. But one thing you can be sure of about me; is I will always do exactly what I want to do. <br><br> - <i>C. JoyBell C</i>"
+  },
+  {
+    "mId": "guid-7",
+    "unread": false,
+    "subject": "RANDOM QUOTE 3",
+    "flag": false,
+    "category": "spam",
+    "content": "Insane means fewer cameras! <br><br> - <i>Ally Carter, Only the Good Spy Young</i>"
+  },
+  {
+    "mId": "guid-8",
+    "unread": false,
+    "subject": "RANDOM QUOTE 4",
+    "flag": false,
+    "category": "spam",
+    "content": "A musician must make music, an artist must paint, a poet must write, if he is to be ultimately at peace with himself. What a man can be, he must be. <br><br> - <i>Abraham Maslow</i> "
+  }
 ]

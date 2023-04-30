@@ -11,7 +11,8 @@ export function spam(){
 }
 export function deleted(){
     return{
-        type : "DELETED"
+        type : "DELETED",
+        
     }
 }
 export function flagged(){
@@ -22,6 +23,22 @@ export function flagged(){
 export function message(id){
     return{
         type : "MESSAGE",
+        payload : id
+    }
+}
+export function del(id,category){
+    // console.log("inside del action")
+    return{
+        type : "DELETE",
+        payload : {
+            id:id,
+            category:category
+        }
+    }
+} 
+export function flag(id){
+    return{
+        type : "FLAG",
         payload : id
     }
 }

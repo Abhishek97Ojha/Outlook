@@ -1,11 +1,11 @@
 import './App.css';
-import PersistentDrawerLeft from './Components/PersistentDrawerLeft';
+import TemporaryDrawer from './Components/PersistentDrawerLeft';
 
 function App() {
   
   return (
     <div className="App">
-      <PersistentDrawerLeft />
+      <TemporaryDrawer />
     </div>
   );
 }

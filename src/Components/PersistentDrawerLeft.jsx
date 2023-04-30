@@ -1,197 +1,128 @@
-import * as React from 'react';
-import { css } from '@emotion/react';
-import { styled, useTheme } from '@mui/material/styles';
-import FlagIcon from '@mui/icons-material/Flag';
-import DeleteIcon from '@mui/icons-material/Delete';
-import Box from '@mui/material/Box';
-import Drawer from '@mui/material/Drawer';
-import CssBaseline from '@mui/material/CssBaseline';
-import MuiAppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import List from '@mui/material/List';
-import Typography from '@mui/material/Typography';
-import Divider from '@mui/material/Divider';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
-import MailList from './MailList';
-import MailData from './MailData';
-import { useDispatch, useSelector } from 'react-redux'
-import { inbox, spam } from '../Redux/action'
-import {useEffect} from 'react'
-const drawerWidth = 240;
+// import * as React from 'react';
+// import { css } from '@emotion/react';
+import { styled, useTheme } from "@mui/material/styles";
+import FlagIcon from "@mui/icons-material/Flag";
+import DeleteIcon from "@mui/icons-material/Delete";
+import IconButton from "@mui/material/IconButton";
+import MenuIcon from "@mui/icons-material/Menu";
+import MailList from "./MailList";
+import MailData from "./MailData";
+import { useDispatch, useSelector } from "react-redux";
+import { inbox, spam,deleted,flagged } from "../Redux/action";
 
-const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
-  ({ theme, open }) => ({
-    flexGrow: 1,
-    padding: theme.spacing(3),
-    transition: theme.transitions.create('margin', {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-      
-    }),
-    
-    marginLeft: `-${drawerWidth}px`,
-    ...(open && {
-      transition: theme.transitions.create('margin', {
-        easing: theme.transitions.easing.easeOut,
-        duration: theme.transitions.duration.enteringScreen,
-        
-      }),
-      marginLeft: 0,
-      
-    }),
-  }),
-);
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Drawer from "@mui/material/Drawer";
+import Button from "@mui/material/Button";
+import List from "@mui/material/List";
+import Divider from "@mui/material/Divider";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import InboxIcon from "@mui/icons-material/MoveToInbox";
+import MailIcon from "@mui/icons-material/Mail";
 
-const AppBar = styled(MuiAppBar, {
-  shouldForwardProp: (prop) => prop !== 'open',
-})(({ theme, open }) => ({
-  transition: theme.transitions.create(['margin', 'width'], {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  }),
-  ...(open && {
-    width: `calc(100% - ${drawerWidth}px)`,
-    marginLeft: `${drawerWidth}px`,
-    transition: theme.transitions.create(['margin', 'width'], {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  }),
-}));
-
-const DrawerHeader = styled('div')(({ theme }) => ({
-  display: 'flex',
-  alignItems: 'center',
-  padding: theme.spacing(0, 1),
-  // necessary for content to be below app bar
-  ...theme.mixins.toolbar,
-  justifyContent: 'flex-end',
-  
-}));
-
-export default function PersistentDrawerLeft() {
-  const dispatch = useDispatch()
+export default function TemporaryDrawer() {
+  const [state, setState] = React.useState({
+    top: false,
+    left: false,
+    bottom: false,
+    right: false,
+  });
+  const dispatch = useDispatch();
   // useEffect()
-  function handleInbox(){
-    dispatch(inbox())
+  function handleInbox() {
+    dispatch(inbox());
   }
-  function handleSpam(){
-    dispatch(spam())
+  function handleSpam() {
+    dispatch(spam());
+  }
+  function handleFlagged() {
+    dispatch(flagged());
+  }
+  function handleDeleted() {
+    dispatch(deleted());
   }
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
-  const handleDrawerOpen = () => {
-    setOpen(true);
+  //
+
+  const toggleDrawer = (anchor, open) => (event) => {
+    setState({ ...state, [anchor]: open });
   };
 
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
+  const list = (anchor) => (
+    <Box
+      className="drawer-box"
+      sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : 250 }}
+      role="presentation"
+      onClick={toggleDrawer(anchor, false)}
+      onKeyDown={toggleDrawer(anchor, false)}
+    >
+      <List>
+        <ul className="mail-folder">
+          <li onClick={handleInbox}>
+            <InboxIcon />
+            &nbsp;&nbsp;Inbox
+          </li>
+          <li onClick={handleSpam}>
+            <MailIcon />
+            &nbsp;&nbsp;Spam
+          </li>
+          <li onClick={handleDeleted}>
+            <DeleteIcon />
+            &nbsp;&nbsp;Deleted
+          </li>
+          <li onClick={handleFlagged}>
+            <FlagIcon />
+            &nbsp;&nbsp;Flagged
+          </li>
+        </ul>
+      </List>
+    </Box>
+  );
 
   return (
-    <Box sx={{ display: 'flex' }} >
-      <CssBaseline />
-      <AppBar position="fixed" open={open} >
-        <Toolbar style={{backgroundColor: "#2980b9"}}>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{ mr: 2, ...(open && { display: 'none' }) }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography className="nav" variant="h6" noWrap component="div" >
-            <img className="outlook-logo" src="Outlook.png" alt="" />
-            Outlook
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <Drawer
-        sx={{
-          width: drawerWidth,
-          flexShrink: 0,
-          '& .MuiDrawer-paper': {
-            width: drawerWidth,
-            boxSizing: 'border-box',
-          },
-        }}
-        
-        variant="persistent"
-        anchor="left"
-        open={open}
-        
-      >
-        <DrawerHeader>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-          </IconButton>
-        </DrawerHeader>
-        <Divider />
-        <List >
-          <ul className='mail-folder'>
-            <li onClick={handleInbox}><InboxIcon />&nbsp;&nbsp;Inbox</li>
-            <li onClick={handleSpam}><MailIcon />&nbsp;&nbsp;Spam</li>
-            <li onClick={handleSpam}><DeleteIcon />&nbsp;&nbsp;Deleted</li>
-            <li onClick={handleSpam}><FlagIcon/>&nbsp;&nbsp;Flagged</li>
-          </ul>
-          {/* {['Inbox', 'Spam', 'Deleted Items', 'Flagged'].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  {index ===0 ? <InboxIcon /> : index === 1 ?<MailIcon />:index === 2 ?<DeleteIcon />:<FlagIcon/>}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))} */}
-        </List>
-      </Drawer>
-      <Main open={open} className='main-box'>
-        <DrawerHeader />
-        <div className="container">
-        <MailList/>
-        <MailData/>
+    <div className="main-container">
+      <div className="nav">
+        <div className="left">
+          {["left"].map((anchor) => (
+            <React.Fragment className="bar-icon" key={anchor}>
+              <Button onClick={toggleDrawer(anchor, true)}>
+                <IconButton
+                  size="large"
+                  edge="start"
+                  color="inherit"
+                  aria-label="open drawer"
+                  sx={{ mr: 2 }}
+                >
+                  <MenuIcon />
+                </IconButton>
+              </Button>
+              <Drawer
+                anchor={anchor}
+                open={state[anchor]}
+                onClose={toggleDrawer(anchor, false)}
+              >
+                {list(anchor)}
+              </Drawer>
+            </React.Fragment>
+          ))}
         </div>
-        {/* <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non
-          enim praesent elementum facilisis leo vel. Risus at ultrices mi tempus
-          imperdiet. Semper risus in hendrerit gravida rutrum quisque non tellus.
-          Convallis convallis tellus id interdum velit laoreet id donec ultrices.
-          Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-          adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra
-          nibh cras. Metus vulputate eu scelerisque felis imperdiet proin fermentum
-          leo. Mauris commodo quis imperdiet massa tincidunt. Cras tincidunt lobortis
-          feugiat vivamus at augue. At augue eget arcu dictum varius duis at
-          consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa
-          sapien faucibus et molestie ac.
-        </Typography>
-        <Typography paragraph>
-          Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper
-          eget nulla facilisi etiam dignissim diam. Pulvinar elementum integer enim
-          neque volutpat ac tincidunt. Ornare suspendisse sed nisi lacus sed viverra
-          tellus. Purus sit amet volutpat consequat mauris. Elementum eu facilisis
-          sed odio morbi. Euismod lacinia at quis risus sed vulputate odio. Morbi
-          tincidunt ornare massa eget egestas purus viverra accumsan in. In hendrerit
-          gravida rutrum quisque non tellus orci ac. Pellentesque nec nam aliquam sem
-          et tortor. Habitant morbi tristique senectus et. Adipiscing elit duis
-          tristique sollicitudin nibh sit. Ornare aenean euismod elementum nisi quis
-          eleifend. Commodo viverra maecenas accumsan lacus vel facilisis. Nulla
-          posuere sollicitudin aliquam ultrices sagittis orci a.
-        </Typography> */}
-      </Main>
-    </Box>
+        <div className="right">
+        <img src="https://www.nicepng.com/png/detail/770-7706476_logo-outlook-microsoft-exchange-server-logo.png" alt="Logo Outlook - Microsoft Exchange Server Logo@nicepng.com" />
+        </div>
+      </div>
+      <div className="container">
+        <div className="container-left">
+          <MailList/>
+        </div>
+        <div className="container-right">
+          <MailData/>
+        </div>
+      </div>
+    </div>
   );
 }
