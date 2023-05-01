@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+# Outlook
+This website is created Using HTML, CSS, JAVASCRIPT, and REACTJS.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview 
+The Goal of the Assignment is to build a Prototype email Client.
 
-## Available Scripts
+## Hosted Link 
+Open [https://outlook-black.vercel.app/](https://outlook-black.vercel.app/) to view in browser.
 
-In the project directory, you can run:
+## Repository
+Open [https://outlook-black.vercel.app/](https://github.com/Abhishek97Ojha/Outlook) to view in browser.
 
-### `npm start`
+## Features
+- The email client can have multiple mail folders.
+  - Inbox
+  - Spam
+  - Deleted 
+  - Flagged
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Fetching data from json file named **data.json** which I have created.
+- On clicking on delete button mail get deleted and moved to Deleted folder.
+- On clicking on flag button mail get flagged and moved to Flagged folder.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Technologies
+- ReactJS : ReactJS is a popular front-end library that allows you to build reusable components to create a dynamic user interface. It provides state management capabilities, which can make it easier to manage the data and state of your application.
+- HTML : HTML is a markup language that is used to create the structure and content of your web pages. It provides a range of elements and tags that can be used to create headings, paragraphs, lists, and other types of content.
+- CSS : CSS is a stylesheet language that is used to add style and formatting to your web pages. It provides a range of properties and values that can be used to adjust the size, color, font, and layout of your content.
+- Git : Git is a version control system that allows you to manage and track changes to your codebase. It helps you to collaborate with others and keep track of your project history.
+- GitHub : GitHub is a web-based platform that allows you to host and manage your Git repositories. It provides a range of features, such as collaboration tools, issue tracking, and pull requests, to help you work on your project with others.
+- Vercel: Vercel is a cloud platform that specializes in hosting and deploying serverless web applications. It provides a range of features and tools to help you build, deploy, and manage your web applications.
 
-### `npm test`
+## Screenshots
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Inbox
+![Screenshot 2023-05-01 184826](https://user-images.githubusercontent.com/73434349/235457443-4faf00f1-cf4a-414e-819f-3f57a2daf1ec.png)
+<br/><br/>
 
-### `npm run build`
+### Folders
+![Screenshot 2023-05-01 184914](https://user-images.githubusercontent.com/73434349/235457587-0e79e16d-c9fe-40ae-a9e1-66ab59f982a2.png)
+<br/><br/>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Deleted
+![Screenshot 2023-05-01 185003](https://user-images.githubusercontent.com/73434349/235457648-fcbd98b2-1382-4c27-a51c-e4f6372204f1.png)
+<br/><br/>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Flagged
+![Screenshot 2023-05-01 185110](https://user-images.githubusercontent.com/73434349/235457733-20421289-54de-4e43-a758-f04a01cff951.png)
+<br/><br/>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Unflagged
+![Screenshot 2023-05-01 185204](https://user-images.githubusercontent.com/73434349/235457743-c7fb8ac7-54a8-4056-a7fe-136b926b1ed6.png)
+<br/><br/>
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
